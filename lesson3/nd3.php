@@ -1,9 +1,12 @@
 <h1>Mano megstamiausi menesiai</h1>
+
 <?php 
 // 1. uzduotis.
 $menesiai = ["Balandis","Geguze","Birzelis","Liepa"];
-echo "<ol>"."<li>".$menesiai[0]."<li>".$menesiai[1]."<li>"
-.$menesiai[2]."<li>".$menesiai[3]."<br>";
+
+for($i = 0, $j = 1 ; $i < count($menesiai); $i++ , $j++){
+    echo $j.".".$menesiai[$i]."<br>";
+}
 echo "<br>";
 ?>
 
@@ -41,52 +44,39 @@ $shopping_cart = [
     'price' => '1.2'
 ]
 ];
-$kaina0 = $shopping_cart[0]["quantinity"] * $shopping_cart[0]["price"];
-$kaina1 = $shopping_cart[1]["quantinity"] * $shopping_cart[1]["price"];
-$kaina2 = $shopping_cart[2]["quantinity"] * $shopping_cart[2]["price"];
-$kaina3 = $shopping_cart[3]["quantinity"] * $shopping_cart[3]["price"];
-$kaina4 = $shopping_cart[4]["quantinity"] * $shopping_cart[4]["price"];
-echo $shopping_cart[3]["type"];
+foreach($shopping_cart as $val){
+    $kaina = $val['quantinity']*$val['price'];
+    if($val['type'] == 'fruits')
+    echo $val['name']." price is ".$kaina."<br>";
+}
 echo "<br>";
-echo "<br>";
-echo $shopping_cart[4]["name"]." price is ".$kaina4." euro";
-echo "<br>";
-echo $shopping_cart[3]["name"]." price is ".$kaina3." euro";
-echo "<br>";
-echo "<br>";
-echo $shopping_cart[0]["type"];
-echo "<br>";
-echo "<br>";
-echo $shopping_cart[0]["name"]." price is ".$kaina0." euro";
-echo "<br>";
-echo $shopping_cart[1]["name"]." price is ".$kaina1." euro";
-echo "<br>";
-echo $shopping_cart[2]["name"]." price is ".$kaina2." euro";
+foreach($shopping_cart as $val){
+    $kaina = $val['quantinity']*$val['price'];
+    if($val['type'] == 'vegetables')
+    echo $val["name"]." price is ".$kaina."<br>";
+}
 echo "<br>";
 ?>
+
 <?php
 //3. Uzduotis.
+
 $arr = ["one" , "two" , "three" , "four"];
 
 function arrayFunction($arr){
   
-    if(end($arr) == false){
+ /*   if(end($arr) == false){
     return "Array is empty";
 }else 
-return end($arr);
+return end($arr);*/
 
-   /*if(empty($arr)){
+   if(empty($arr)){
         return "Array is empty";
     }else
-    return end($arr);*/
-    
+    return end($arr);
 }
-
-
 echo "<br>";
 echo arrayFunction($arr);
-
-
 ?>
 
 
