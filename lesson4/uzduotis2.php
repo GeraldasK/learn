@@ -1,7 +1,9 @@
 <?php
 function checkUser($user, $someOne){
 //foreach($user as $var){
-if($user['username'] == $someOne['username'] && $user['password'] == $someOne['password'])
+foreach($user as $useris);
+foreach($someOne as $var);
+if($useris == $var)
 return true;
 else
 return false;
