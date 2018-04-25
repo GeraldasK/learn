@@ -8,15 +8,23 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="" method="POST">
    Username: <input type="text" name="user"><br>
    <br>
     Password: <input type="text" type="passw">
-    <?php foreach($_SESSION as $info);
-    if(!empty($info)){
-        echo "<br>Registration successful!";
-    }
-    else
-    echo "<br> Error";
+    <input type="submit" value="Submit" name="submit">
+</form>
+    <?php 
+     if (!empty($_SESSION['username']) && !empty($_SESSION ['password']))
+     {
+         echo "Login Successful";
+     }
+     else
+         {
+         echo "Error";
+     }
+     unset ($_SESSION['username'], $_SESSION ['password']);
+     
 ?>
 </body>
 </html>
