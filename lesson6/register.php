@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION['username'] = $_POST['username'];
+$_SESSION['password'] = $_POST['password'];
 
 if(isset($_POST['registerme'])){
     $data = array();
@@ -32,9 +34,5 @@ function getDb(){
     ]);
 }
 
-$_SESSION['user'] = $_POST['username'];
-$_SESSION['pw'] = $_POST['password'];
-$_SESSION['el'] = $_POST['email'];
-$_SESSION['name'] = $_POST['name'];
-header("Location: login.php");
+    header("Location: login.php"); 
 ?>
