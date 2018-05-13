@@ -4,10 +4,6 @@ use Person\Mark;
 use Person\Student;
 use Person\Module;
 use Person\Data\Connect;
-
-//$mark = new Mark("kakakka", "21115", "10");
-//$mark->save();
-//$mark->get();
 ?>
 <!doctype html>
 <html lang="en">
