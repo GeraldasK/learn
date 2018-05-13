@@ -1,0 +1,15 @@
+{
+    "name": "geek/lesson12",
+    "authors": [
+        {
+            "name": "GeraldasK",
+            "email": "gerk.kasp@icloud.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+    "psr-4": {
+        "Person\\" :"src"
+    }
+}
+}
