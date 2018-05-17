@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "vendor/autoload.php";
 use Chuck\Chuck;
 use Chuck\Data\db;
@@ -33,6 +34,14 @@ for ($i=0; $i < 5; $i++) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body class="container">
+    <?php if (isset($_SESSION['message'])): ?>
+	        <div class="alert alert-success">
+                <?php 
+                    echo $_SESSION['message']; 
+                    unset($_SESSION['message']);
+                ?>
+	        </div>
+    <?php endif ?>
     <table class="table table-hover">
     <thead>
       <tr>
