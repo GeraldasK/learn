@@ -35,5 +35,16 @@ class Chuck extends Db
         $res = $this->query($sql, [])->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
+    public function editChuck($id){
+        $sql = "SELECT icon_url, url , value FROM chuck WHERE id = '$id'";
+        $sth = $this->query($sql, $data=[]);
+        $record = $sth->fetch(PDO::FETCH_ASSOC); 
+        return $record;
+    }
+
+    public function updateChuck(){
+        //
+    }
 }
 ?>
