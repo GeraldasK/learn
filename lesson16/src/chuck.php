@@ -43,8 +43,10 @@ class Chuck extends Db
         return $record;
     }
 
-    public function updateChuck(){
-        //
+
+    public function deleteChuck($id){
+        $sql = "DELETE FROM chuck WHERE id = '$id'";
+        $sth = $this->query($sql);
     }
 }
 ?>
