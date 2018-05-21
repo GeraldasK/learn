@@ -4,23 +4,21 @@ require "vendor/autoload.php";
 use Chuck\Chuck;
 use Chuck\Data\db;
 
+//$norris = new Chuck;
+//$norris -> saveChuck($results);
+
 for ($i=0; $i < 5; $i++) { 
     $url = "https://api.chucknorris.io/jokes/random";
     $res[] = json_decode(file_get_contents($url)); 
     $results = $res;
 }
+if(isset($_POST['delete'])){
+    $id = $_POST['id'];
+    $del = new Chuck;
+    $del->deleteChuck($id);
+    echo '<div class="alert alert-danger">Record deleted</div>';
+}
 
-    if(isset($_GET['edit'])){
-        $id = $_GET['edit'];
-        var_dump($id);
-        $sql = "SELECT icon_url, url , value FROM chuck WHERE id = '$id'";
-        $db = new Db;
-        $sth = $db->getDb()->prepare($sql);
-        $sth->execute();
-        $record = $sth->fetch(PDO::FETCH_ASSOC);        
-    }
-//$norris = new Chuck;
-//$norris -> saveChuck($results);
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,7 +64,9 @@ for ($i=0; $i < 5; $i++) {
                 <!--<input type="hidden" name="id" value="<?php //echo $record['id']?>">-->
             </form>
             <form method="POST">
-            <button type="submit" name="<?php $record['id']?>" class="btn btn-danger" id="<?php $record['id']?>" style="width:80px;">Delete</button>
+                <input type="hidden"  name="id" value="<?php echo $record['id'];?>">
+                <input type="submit" name="delete" class="btn btn-danger"
+                 style="width:80px;" value="Delete">
             </form>
             </td>
         </tr> 
@@ -74,12 +74,6 @@ for ($i=0; $i < 5; $i++) {
 
     </tbody>
     </table>       
-        <div>
-            <?php
-                //$norris = new Chuck;
-                //$norris -> saveChuck($results);
-            ?>
-        </div>
 
       
     <!-- Optional JavaScript -->
